@@ -36,20 +36,27 @@ lista_puntos = conjunto_pnto(M, "X")
 while not any(verificar(lista_matrix[i], lista_puntos, "X") for i in range(len(lista_matrix))):
     print("Ingresa el número del bingo: ")
     numero = input()
-    for matriz in lista_matrix:
+    for k, matriz in enumerate(lista_matrix):
         for i in range(len(matriz)):
             for j in range(len(matriz[i])):
                 if matriz[i][j] == numero:
                     matriz[i][j] = "X"
-    imprimirbin(matriz)
+        print()
+        print("B I N G O N°", k+1)
+
+        imprimirbin(matriz)
 n = 0
 for i in range(len(lista_matrix)):
     if verificar(lista_matrix[i], lista_puntos, "X") :
         n+=1
 if n ==1:
+    print()
     print("Tu bingo ganador es: ")
+    print()
 if n >1:
+    print()
     print("Tus bingos ganadores son: ")
+    print()
 
 for matriz in lista_matrix:
     if verificar(matriz, lista_puntos, "X"):
