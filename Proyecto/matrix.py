@@ -1,6 +1,4 @@
-import numpy as np
 from a import *
-
 iniciar()
 lista_matrix = []
 lista_matrix2 = []
@@ -22,6 +20,9 @@ while True:
             N = []
             print("¿Quieres ingresar un bingo más? si/no")
             a = input()
+            if a =="no":
+                print("entonces escribe ready ")
+
     else:
         break
 M = []
@@ -40,12 +41,20 @@ while not any(verificar(lista_matrix[i], lista_puntos, "X") for i in range(len(l
             for j in range(len(matriz[i])):
                 if matriz[i][j] == numero:
                     matriz[i][j] = "X"
-    lista = np.array(lista_matrix)
-    print(lista)
+    imprimirbin(matriz)
+n = 0
+for i in range(len(lista_matrix)):
+    if verificar(lista_matrix[i], lista_puntos, "X") :
+        n+=1
+if n ==1:
+    print("Tu bingo ganador es: ")
+if n >1:
+    print("Tus bingos ganadores son: ")
+
 for matriz in lista_matrix:
     if verificar(matriz, lista_puntos, "X"):
         indice = lista_matrix.index(matriz)
         ganador = lista_matrix2[indice]
-        ganador = np.array(ganador)
-        print("Tu bingo ganador es: ")
-        print(ganador)
+
+        print("B I N G O N°",indice+1)
+        imprimirbin(ganador)

@@ -22,7 +22,7 @@ def iniciar():
     print("10 19 44 48 70")
     print("8  16 40 60 73")
     print("11 18 45 55 61")
-    print("paso 2: Cuando termines de ingresar tus bingos pon \'ready\'")
+    print("paso 2: Pon '"'no'"' para terminar de ingresar tus bingos y luego sigue las instrucciones ")
     print("paso 3: Dibuja la forma de juego con X\'s y O\'s (no olvides que los X\'s definen la forma)")
     print("Por ejemplo:")
     print("X X X X X")
@@ -31,3 +31,11 @@ def iniciar():
     print("X 0 0 0 X")
     print("X X X X X")
     print("!! Comenzemos !!")
+def imprimirbin(bingo):
+    for fila in bingo :
+        for elemento in fila:
+            if len(elemento) == 1:
+                print(elemento,end="  ")
+            elif len(elemento)==2:
+                print(elemento,end=" ")
+        print()
